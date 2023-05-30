@@ -1,5 +1,5 @@
 {
-  "name": "solo-project",
+  "name": "MyPTHub",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "dev": "NODE_ENV=development webpack-dev-server --open & NODE_ENV=development nodemon backend/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Giovana De La Cruz",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

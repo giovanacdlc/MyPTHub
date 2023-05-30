@@ -1,76 +1,88 @@
-// import React, { Component } from 'react';
-// import { render } from 'react-dom';
+import React from 'react';
+import { useState, useEffect } from 'react';
 
-// class Register extends Component {
-//     constructor(props) {
-//         super (props);
-//         this.state = {
-//             name: '', 
-//             username: '', 
-//             password: ''
-//         }
-//     }
-// }
+function Register() {
+//   const [formData, setFormData] = useState({
+//     name: '',
+//     username: '',
+//     password: '',
+//   });
+  const [formData, setFormData] = useState();
 
-// export default Register
 
-import React from 'react'
-import { useState, useEffect } from 'react'
+  const { name, username, password } = formData;
+//   const onChange = (e) => {
+//     setFormData((prevState) => ({
+//       ...prevState,
+//       [e.target.name]: e.target.value,
+//     }));
+//   };
+  const userObject = {
+    name: name,
+    username: username,
+    password: password
+  }
 
-const Register =() => {
-    const [formData, setFormData] = useState({
-        name: '', 
-        username: '', 
-        password: ''
-    })
-    const {name, username, password} = formData
-    const onChange = (e) => {
-        setFormData((prevState) => ({
-            ...prevState, 
-            [e.target.name]: e.target.value
-        }))
+  const onSubmit = (e) => {
+    //when the user info is submitted, it should trigger a fetch post request to the backend
+    // e.preventDefault();
+    async function createUser() {
+      try {
+        const response = await fetch('api/users', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(userObject),
+        });
+        const data = await response.json();
+        console.log(data);
+        setFormData(data);
+      } catch (err) {
+        console.log(err);
+      }
     }
+    createUser();
+  };
 
-    const onSubmit = (e) => {
-        e.preventDefault()
-    }
+  return (
+    <div className="container">
+      <h1>Please create an account</h1>
 
-    return (
-        <div className='container'>
-            <h1>Please create an account</h1>
-
-            <section>
-                <form>
-                    <input className='form-control'
-                        type="text" 
-                        id='name' 
-                        name='name' 
-                        value={name}
-                        placeholder='Enter your name'
-                        onChange={onChange}
-                    />
-                    <input className='form-control'
-                        type="text" 
-                        id='username' 
-                        name='username' 
-                        value={username}
-                        placeholder='Username'
-                        onChange={onChange}
-                    />
-                    <input className='form-control'
-                        type="password" 
-                        id='password' 
-                        name='password' 
-                        value={password}
-                        placeholder='Password'
-                        onChange={onChange}
-                    />
-                </form>
-                <button type='submit' className='btn'>Submit</button>
-            </section>
-        </div>
-
-    )
+      <section>
+        <form>
+          <input
+            className="form-control"
+            type="text"
+            id="name"
+            name="name"
+            value={name}
+            placeholder="Enter your name"
+            onChange={onChange}
+          />
+          <input
+            className="form-control"
+            type="text"
+            id="username"
+            name="username"
+            value={username}
+            placeholder="Username"
+            onChange={onChange}
+          />
+          <input
+            className="form-control"
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            placeholder="Password"
+            onChange={onChange}
+          />
+        </form>
+        <button type="submit" className="btn" onClick={() => onSubmit()}>
+          Submit
+        </button>
+      </section>
+    </div>
+  );
 }
 
-export default Register
+export default Register;

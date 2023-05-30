@@ -30,6 +30,17 @@ h3 {
   margin: 0 auto;
   padding: 0 20px;
   text-align: center;
+  position: relative;
+  top: 50px;
+}
+
+.form-control {
+  padding: 10px;
+  border: 1px solid #438454;
+  border-radius: 6px;
+  font-size: 10px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
 }
 
 .header {
@@ -75,6 +86,7 @@ h3 {
 }
 
 .btn {
+  margin-top: 5%;
   padding: 10px 20px;
   border: 1px solid #000;
   border-radius: 5px;

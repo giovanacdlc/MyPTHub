@@ -5,7 +5,7 @@ const Dashboard =() => {
 
         return (
             <div className='container'>
-                <h1>Welcome to the PT Portal!</h1>
+                <h1>Welcome to MyPTHub!</h1>
                 <Link to= "/Register">
                     <button className='btn'> Register</button>
                 </Link>

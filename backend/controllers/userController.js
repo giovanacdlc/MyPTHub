@@ -68,12 +68,12 @@ const loginUser = asyncHandler(async (req, res) => {
 //@route GET /api/users/userInfo
 //@access Private
 const getUserData = asyncHandler(async (req, res) => {
-    const {_id, name, email} = await PT.findById(req.user.id);
-    res.status(200).json({
-        id: _id, 
-        name: name, 
-        username: username,
-    })
+    const { id } = req.params;
+    const user = await PT.findById(id);
+    if (!user) {
+        return res.status(404).json({error: 'User not found'})
+    }
+    res.json({name: user.name}) 
 })
 
 //Generate JWT

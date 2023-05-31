@@ -5,10 +5,10 @@ function PTMainPage () {
   return (
     <div className='container'>
       <h1>Welcome PT!</h1>
-        <Link to= "/Register">
+        <Link to= "/PT/Register">
           <button className='btn'> Register</button>
         </Link>
-        <Link to= "/Login">
+        <Link to= "/PT/Login">
           <button className='btn'>Sign In</button>
         </Link>
     </div>

@@ -5,10 +5,10 @@ function MainPage () {
   return (
     <div className='container'>
       <h1>Welcome to MyPTHub!</h1>
-        <Link to= "/PT/dashboard">
+        <Link to= "/PT">
           <button className='btn'> Physical Therapist</button>
         </Link>
-        <Link to= "/patient/dashboard">
+        <Link to= "/patient">
           <button className='btn'>Patient</button>
         </Link>
     </div>

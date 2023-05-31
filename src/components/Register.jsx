@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 
 function Register() {
   const [name, setName] = useState('');
@@ -73,52 +74,12 @@ function Register() {
           />
         </label>
         <br />
-        <button type="submit" className='btn'>Submit</button>
+        <Link to = "/PT/Welcome">
+          <button type="submit" className='btn'>Submit</button>
+        </Link>
       </form>
     </div>
   );
 }
-
-//   return (
-//     <div className="container">
-//       <h1>Please create an account</h1>
-
-//       <section>
-//         <form>
-//           <input
-//             className="form-control"
-//             type="text"
-//             id="name"
-//             name="name"
-//             value={name}
-//             placeholder="Enter your name"
-//             onChange={onChange}
-//           />
-//           <input
-//             className="form-control"
-//             type="text"
-//             id="username"
-//             name="username"
-//             value={username}
-//             placeholder="Username"
-//             onChange={onChange}
-//           />
-//           <input
-//             className="form-control"
-//             type="password"
-//             id="password"
-//             name="password"
-//             value={password}
-//             placeholder="Password"
-//             onChange={onChange}
-//           />
-//         </form>
-//         <button type="submit" className="btn" onClick={() => onSubmit()}>
-//           Submit
-//         </button>
-//       </section>
-//     </div>
-//   );
-// }
 
 export default Register;

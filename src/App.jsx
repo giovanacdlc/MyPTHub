@@ -7,17 +7,21 @@ import "./stylesheet.css"
 import MainPage from './components/MainPage';
 import PTMainPage from './components/PTMainPage';
 import PatientMainPage from './components/PatientMainPage';
+import PTWelcome from './components/PTWelcome';
 
 function App () {
   return (    
     <div className='container'>
       <Routes>
         {/* <Route path='/' element={<h1>My App</h1>}/> */}
-        <Route path='/login' element={ <Login/> }/>
-        <Route path='/register' element={ <Register /> }/>
         <Route path='/' element={ <MainPage /> }/>
-        <Route path='/PT/dashboard' element={ <PTMainPage /> }/>
-        <Route path='/patient/dashboard' element={ <PatientMainPage /> }/>
+        <Route path='/PT' element={ <PTMainPage /> }/>
+        <Route path='/patient' element={ <PatientMainPage /> }/>
+        <Route path='/PT/register' element={ <Register /> }/>
+        <Route path='/patient/register' element={ <Register /> }/>
+        <Route path='/PT/login' element={ <Login/> }/>
+        <Route path='/patient/login' element={ <Login/> }/>
+        <Route path='/PT/Welcome' element={ <PTWelcome /> }/>
       </Routes>
     </div>
   )

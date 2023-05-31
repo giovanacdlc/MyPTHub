@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 function PTWelcome() {
+  const { id } = useParams();
   const [name, setName] = useState('');
 
   useEffect(() => {
@@ -16,7 +18,7 @@ function PTWelcome() {
     };
 
     fetchName();
-  }, [name]);
+  }, [id]);
 
   return (
     <div>
